@@ -1,6 +1,7 @@
 class Convert:
     def __init__(self, line):
         aksjdh = line.strip().split(";")
+        self.id = aksjdh[0]
         if aksjdh[1] == "k":
             self.kerdes = aksjdh[2]
             self.valaszok = []
@@ -8,14 +9,14 @@ class Convert:
             try:
                 pont = int(aksjdh[3])
             except ValueError:
-                print(f"Hiba: a pont értéke nem szám a következő válasznál: {aksjdh[2]}")
                 pont = 0
+
             self.valaszok.append({"valasz": aksjdh[2], "pont": pont})
 
 kerdesek = []
 current_kerdes_valasz = None
 
-f = open('kerdesek.csv', 'r', encoding='utf-8')
+f = open("kerdesek.csv", "r", encoding="utf-8")
 for i in f:
         parts = i.strip().split(";")
         if parts[1] == "k":
@@ -39,8 +40,8 @@ question_number = 1
 for i in kerdesek:
     print(f"{question_number}. Kérdés: {i.kerdes}\n")
 
-    for idx, valasz in enumerate(i.valaszok, 1):
-        print(f"{idx}) {valasz['valasz']}")
+    for j in range(len(i.valaszok)):
+        print(f"{j + 1}) {i.valaszok[j]['valasz']}")
 
     valasz_szam = int(input("\nVálassz egy számot (1, 2 vagy 3): "))
 
