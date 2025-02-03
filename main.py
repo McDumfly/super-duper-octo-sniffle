@@ -37,7 +37,8 @@ f.close()
 pontszam = 0
 question_number = 1
 
-for i in kerdesek:
+def printKerdes():
+    for i in kerdesek:
     print(f"{question_number}. Kérdés: {i.kerdes}\n")
 
     for j in range(len(i.valaszok)):
@@ -58,6 +59,8 @@ for i in kerdesek:
     pontszam += int(i.valaszok[valasz_szam - 1]["pont"])
 
     question_number += 1
+
+printKerdes()
 
 print(f"Pontszám: {pontszam}")
 if 21 >= pontszam >= 13:
