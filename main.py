@@ -39,7 +39,7 @@ question_number = 1
 
 def printKerdes():
     for i in kerdesek:
-    print(f"{question_number}. Kérdés: {i.kerdes}\n")
+        print(f"{question_number}. Kérdés: {i.kerdes}\n")
 
     for j in range(len(i.valaszok)):
         print(f"{j + 1}) {i.valaszok[j]['valasz']}")
